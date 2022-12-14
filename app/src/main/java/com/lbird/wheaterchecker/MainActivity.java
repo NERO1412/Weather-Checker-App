@@ -20,11 +20,11 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView city,country,time,temp,forecast,humidity,min_temp,max_temp,sunrises,sunsets;
+    TextView city, country, time, temp, forecast, humidity,
+            min_temp, max_temp, sunrises, sunsets;
     ImageView search;
     EditText etCity;
     String CITY;
-    //String API = "6bfdc4bcdcc004bc16eb3d09caee45cc";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                 JSONObject weather = jsonObj.getJSONArray("weather").getJSONObject(0);
                 JSONObject sys = jsonObj.getJSONObject("sys");
 
-// CALL VALUE IN API :
+                // CALL VALUE IN API :
                 String city_name = jsonObj.getString("name");
                 String countryname = sys.getString("country");
                 Long updatedAt = jsonObj.getLong("dt");
@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
                 Long set = sys.getLong("sunset");
                 String sunset = new SimpleDateFormat("hh:mm a", Locale.ENGLISH).format(new Date(set * 1000));
 
-// SET ALL VALUES IN TEXTBOX :
+                // SET ALL VALUES IN TEXTBOX :
                 city.setText(city_name);
                 country.setText(countryname);
                 time.setText(updatedAtText);
